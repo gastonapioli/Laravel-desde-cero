@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $products = db::table('products')->get();
+        dd($products);
+
         return view('products.index');
     }
 
@@ -21,6 +25,8 @@ class ProductController extends Controller
     }
     public function show($product)
     {
+        $product = db::table('products')->find($product);  //find en vez de get para traer un solo elemento
+        dd($product);
         return view('products.show');
     }
     public function edit($product)
