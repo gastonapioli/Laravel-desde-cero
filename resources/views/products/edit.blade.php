@@ -10,25 +10,25 @@
     @method('PUT')
     <div class="form-row">
         <label>Titulo</label>
-        <input type="text" class="form-control" name="title" value="{{$product->title}}" required>
+        <input type="text" class="form-control" name="title" value="{{old('title') ?? $product->title}}" required>
     </div>
     <div class="form-row">
         <label>Descripción</label>
-        <input type="text" class="form-control" name="description" value="{{$product->description}}" required>
+        <input type="text" class="form-control" name="description" value="{{old('description') ?? $product->description}}" required>
     </div>
     <div class="form-row">
         <label>Precio</label>
-        <input type="number" class="form-control" name="price" min="1.00" step="0.01" value="{{$product->price}}" required>
+        <input type="number" class="form-control" name="price" min="1.00" step="0.01" value="{{old('price') ?? $product->price}}" required>
     </div>
     <div class="form-row">
         <label>Stock</label>
-        <input type="number" class="form-control" name="stock" min="0" value="{{$product->stock}}" required>
+        <input type="number" class="form-control" name="stock" min="0" value="{{old('stock') ?? $product->stock}}" required>
     </div>
     <div class="form-row">
         <label>Status</label>
         <select class="custom-select" name="status" required>
-            <option {{$product->status == 'Disponible' ? 'Selected' : ''}} value="Disponible">Disponible</option>
-            <option {{$product->status == 'No Disponible' ? 'Selected' : ''}} value="Do Disponible">No Disponible</option>
+            <option {{old('status') == 'Disponible' ? 'selected' : ($product->status == 'Disponible' ? 'Selected' : '')}} value="Disponible">Disponible</option>
+            <option {{old('status') == 'NoDisponible' ? 'selected' : ($product->status == 'NoDisponible' ? 'Selected' : '')}} value="NoDisponible">No Disponible</option>
         </select>
     </div>
     <div class="form-row">
