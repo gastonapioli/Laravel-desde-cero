@@ -1,4 +1,4 @@
-@extends('layauts.master')
+@extends('layouts.master')
 
 @section('content')
 <h1>Crear un Producto</h1>
@@ -9,26 +9,26 @@
     {{-- csrf es un token que deben tener los formularios por seguridad, incluye un capo oculto en el form --}}
     <div class="form-row">
         <label>Titulo</label>
-        <input type="text" class="form-control" name="title" required>
+        <input type="text" class="form-control" name="title" value="{{ old('title') }}">
     </div>
     <div class="form-row">
         <label>Descripción</label>
-        <input type="text" class="form-control" name="description" required>
+        <input type="text" class="form-control" name="description" value="{{ old('description') }}">
     </div>
     <div class="form-row">
         <label>Precio</label>
-        <input type="number" class="form-control" name="price" min="1.00" step="0.01" required>
+        <input type="number" class="form-control" name="price" min="1.00" step="0.01" value="{{ old('price') }}">
     </div>
     <div class="form-row">
         <label>Stock</label>
-        <input type="number" class="form-control" name="stock" min="0" required>
+        <input type="number" class="form-control" name="stock" min="0" value="{{ old('stock') }}">
     </div>
     <div class="form-row">
         <label>Status</label>
-        <select class="custom-select" name="status" required>
+        <select class="custom-select" name="status">
             <option value="" selected>Seleccione</option>
-            <option value="disponible">Disponible</option>
-            <option value="nodisponible">No Disponible</option>
+            <option {{old('status') == 'Disponible' ? 'selected' : '' }} value="Disponible">Disponible</option>
+            <option {{old('status') == 'No Disponible' ? 'selected' : '' }} value="No Disponible">No Disponible</option>
         </select>
     </div>
     <div class="form-row">
