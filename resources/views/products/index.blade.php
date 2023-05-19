@@ -1,9 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
 <h1>Listado de Productos</h1>
 
-<a class="btn btn-success btn-lg" href="{{route('products.create')}}">Nuevo Producto</a>
+<a class="btn btn-success btn-lg mb-3" href="{{route('products.create')}}">Nuevo Producto</a>
 
 @empty($products)
 <div class="alert alert-warning">
