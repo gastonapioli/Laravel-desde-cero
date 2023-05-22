@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Listado de Productos</h1>
+<h1><i class="fa-solid fa-user"></i>Listado de Productos</h1>
 
 <a class="btn btn-success btn-lg mb-3" href="{{route('products.create')}}">Nuevo Producto</a>
 
