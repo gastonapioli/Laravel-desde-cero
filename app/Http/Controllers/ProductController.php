@@ -53,12 +53,17 @@ class ProductController extends Controller
 
 
 
-        $product = Product::create(request()->validate());
+        $product = Product::create(request()->all());
         // return redirect()->back();
         // return redirect()->action('ProductController@index');
         // session()->flash('success', "El producto {$product->id} {$product->title} fue creado");
 
-        return redirect()->route('products.index')->withSuccess("El producto {$product->id} {$product->title} fue creado");
+
+        // Set a success toast, with a title
+        toastr()->success('Data has been saved successfully!', 'Congrats');
+
+        return redirect()->route('products.index');
+        // ->withSuccess("El producto {$product->id} {$product->title} fue creado");
     }
     public function show(Product $product)
     {
