@@ -102,6 +102,10 @@ class ProductController extends Controller
     {
         // $product = Product::findOrFail($product);
         $product->delete();
-        return redirect()->route('products.index')->withSuccess("El producto {$product->id} {$product->title} fue eliminado1");;
+        // Set a success toast, with a title
+        toastr()->error("El producto {$product->id} {$product->title} fue eliminado", "Eliminado");
+
+        return redirect()->route('products.index');
+        /* ->withSuccess("El producto {$product->id} {$product->title} fue eliminado1"); */
     }
 }
