@@ -5,9 +5,18 @@
 
 <a class="btn btn-success btn-lg mb-3" href="{{route('products.create')}}">Nuevo Producto</a>
 
-@empty($products)
-<div class="alert alert-warning">
-    <h5>La lista de productos está vacía</h5>
+
+@if(count($products)==0)
+<div class="col text-center animate__animated animate__flash">
+    <div class="alert alert-warning" role="alert">
+        <div class="col">
+            <i class="fa-solid fa-triangle-exclamation fa-6x animate__animated animate__pulse animate__infinite"></i>
+        </div>
+        <div class="col">
+            <h4 class="alert-heading">Sin productos</h4>
+            <p>No se encontraron productos en el sistema</p>
+        </div>
+    </div>
 </div>
 @else
 <div class="table-responsive">
@@ -48,9 +57,10 @@
 
                 </td>
             </tr>
+
             @endforeach
         </tbody>
     </table>
 </div>
-@endempty
+@endif
 @endsection
