@@ -60,7 +60,8 @@ class ProductController extends Controller
 
 
         // Set a success toast, with a title
-        toastr()->success('Data has been saved successfully!', 'Congrats');
+        toastr()->success("El producto {$product->id} {$product->title} fue creado", "Producto creado");
+
 
         return redirect()->route('products.index');
         // ->withSuccess("El producto {$product->id} {$product->title} fue creado");
@@ -103,7 +104,7 @@ class ProductController extends Controller
         // $product = Product::findOrFail($product);
         $product->delete();
         // Set a success toast, with a title
-        toastr()->error("El producto {$product->id} {$product->title} fue eliminado", "Eliminado");
+        toastr()->success("Producto {$product->id} {$product->title} fue eliminado", "Producto eliminado");
 
         return redirect()->route('products.index');
         /* ->withSuccess("El producto {$product->id} {$product->title} fue eliminado1"); */

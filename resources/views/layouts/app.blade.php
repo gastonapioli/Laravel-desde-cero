@@ -13,13 +13,13 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -95,10 +95,13 @@
                     </ul>
                 </div>
                 @endif
-                @yield('content')
+                <div class="animate__animated animate__fadeIn">
+                    @yield('content')
+                </div>
             </div>
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </body>
 
 
