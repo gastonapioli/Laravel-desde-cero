@@ -4,8 +4,9 @@
 <h1 class="animate__animated animate__bounce">Bienvenidos!!</h1>
 
 <div class="row">
+
     @forelse ($products as $product)
-    <div class="col-3 animate__animated animate__bounceIn">
+    <div class="col animate__animated animate__bounceIn">
         @include('components.product-card')
     </div>
     @empty
