@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->float('amaunt')->unsigned();
+            $table->float('amount')->unsigned();
             $table->timestamp('payed_at')->nullable();
-            //order_id
+            $table->bigInteger('order_id')->unsigned();
             $table->timestamps();
+
+
+            //aqui indico la FK 1:1
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 

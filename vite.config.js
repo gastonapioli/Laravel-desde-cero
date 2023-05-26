@@ -8,8 +8,14 @@ export default defineConfig({
                 "resources/sass/app.scss",
                 "resources/js/app.js",
                 "resources/css/app.css",
+                "resources/css/navbarFixedLeft.css",
             ],
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            $: "jQuery",
+        },
+    },
 });

@@ -3,29 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-
     <!-- Scripts -->
-
-    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css'])
-
-
-
-
+    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css','resources/css/navbarFixedLeft.css'])
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-body-secondary fixed-left shadow-xl p-2">
-
             <div class="container p-2">
                 <a class="navbar-brand text-light-emphasis" href="{{"/"}}">
                     <img width="40rem" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/985px-Laravel.svg.png">
@@ -35,8 +24,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
-
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -47,20 +34,19 @@
                     </ul>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('products.index') }}">Productos</a>
+                            <a class="nav-link active" href="{{ route('products.index') }}"><i class="fa-solid fa-house"></i> Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                            <a class="nav-link" href="{{ route('products.index') }}"><i class="fa-solid fa-house"></i> Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ route('products.index') }}">Productos</a>
+                            <a class="nav-link " href="{{ route('products.index') }}"><i class="fa-solid fa-house"></i> Productos</a>
                         </li>
                         <hr>
                     </ul>
                     <div class="spinner-border loading" style="width: 3rem; height: 3rem;" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav nav-pills flex-column mb-auto position-absolute bottom-0 translate-middle-y d-none d-md-block py-4">
                         <!-- Authentication Links -->
@@ -81,7 +67,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa-solid fa-user"></i> {{ Auth::user()->name }}
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -104,7 +89,6 @@
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
                         </li>
                         @endif
-
                         @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarme') }}</a>
@@ -115,7 +99,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa-solid fa-user"></i> {{ Auth::user()->name }}
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -132,9 +115,7 @@
                 </div>
             </div>
         </nav>
-
         <main class="p-4">
-
             <div class="container-fluid">
                 @if (session()->has('error'))
                 <div class="alert alert-danger">
@@ -180,32 +161,5 @@
             </div>
         </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
-    <script>
-        window.onload = function() {
-            $(".loading").fadeToggle("fast");
-        }
-
-    </script>
-
-    <script type="text/javascript">
-        function btnLoad() {
-
-            $('.btn').prop("disabled", true);
-            $('.btn').addClass("btn-outline-light");
-            $('.btn').html(
-                `<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>  Cargando`
-
-            );
-
-
-        };
-
-    </script>
-
 </body>
-
-
-
 </html>
