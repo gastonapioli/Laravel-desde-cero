@@ -4,7 +4,7 @@
 <h1>Crear un Producto</h1>
 
 
-<form method="POST" action="{{route('products.store')}}">
+<form method="POST" action="{{route('products.store')}}" onsubmit="btnLoad()">
     @csrf
     {{-- csrf es un token que deben tener los formularios por seguridad, incluye un capo oculto en el form --}}
 
