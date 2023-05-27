@@ -52,4 +52,24 @@ class User extends Authenticatable
     protected $dates = [
         'admin_since',
     ];
+
+
+    //relacion uno a muchos
+    public function orders()
+    {
+        $this->hasMany(Order::class, 'customer_id');
+    }
+
+
+    //RELACIONES A TRAVÉS DE RELACIONES-->
+    public function payments()
+    {
+        return $this->hasManyThrough(Payment::class, Order::class, 'customer_id');
+    }
+
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('path');
             $table->timestamps();
+            //este campo se agrega porque es una relacion polimorfica
+            $table->morphs('imageable');
         });
     }
 
