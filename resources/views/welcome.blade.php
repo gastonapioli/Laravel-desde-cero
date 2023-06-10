@@ -6,9 +6,14 @@
 <div class="row">
 
     @forelse ($products as $product)
-    <div class="col animate__animated animate__bounceIn">
-        @include('components.product-card')
-    </div>
+
+    
+
+        <div class="col-4 animate__animated animate__bounceIn pt-5">
+            @include('components.product-card')
+        </div>
+    
+    
     @empty
     <div class="col text-center animate__animated animate__flash">
         <div class="alert alert-warning" role="alert">

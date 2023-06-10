@@ -25,10 +25,20 @@ class Product extends Model
 
     public function carts()
     {
-        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+        return $this->morphedByMany(Cart::class, 'productable')->withPivot('quantity');
     }
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('quantity');
+        return $this->morphedByMany(Order::class, 'productable')->withPivot('quantity');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'Imageable');
+    }
+
+    public function scopeAviable($query){
+        $query->where('status', 'disponible');
+        $query->where('price', '>', 5000);
     }
 }
